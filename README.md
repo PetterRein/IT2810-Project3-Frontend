@@ -19,3 +19,6 @@ The guide at https://medium.com/backticks-tildes/setting-up-a-redux-project-with
 - Enter `npm install` to install required packages
 - Enter `npm start` to run the application
 - web should start at `localhost:3000`
+
+### Timetracking
+Timetracking will be done with [Toggle](https://https://toggl.com/) and/or [Wakatime](https://wakatime.com). 
