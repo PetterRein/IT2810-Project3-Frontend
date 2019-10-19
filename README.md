@@ -4,6 +4,8 @@ This is a project developed in React.js with Redux for the course IT2810.
 
 The guide at https://medium.com/backticks-tildes/setting-up-a-redux-project-with-create-react-app-e363ab2329b8 was used for this setup
 
+Graphqø queries with React Hooks guide https://medium.com/better-programming/use-graphql-query-hooks-with-react-d440c6dcb57d
+
 ## Getting started
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
