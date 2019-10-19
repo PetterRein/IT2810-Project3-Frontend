@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './components/HelloWorld'
+import MoviePage from './components/MoviePage'
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+
+const movieQuery = gql`
+  {
+    movies {
+      id
+      title
+      release_date
+      vote_average
+      poster_path
+    }
+  }
+`;
+
 
 function App() {
+  const { loading: loadingFilms, error: errorFilm, data: dataFilms } = useQuery(
+    movieQuery
+  );
+
+  if (loadingFilms) return <p>Loading...</p>;
+  if (errorFilm) return <p>There's an error: {errorFilm.message}</p>;
+
+  const movies = dataFilms.movies
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <HelloWorld />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <MoviePage movies={movies}/>
     </div>
   );
 }
