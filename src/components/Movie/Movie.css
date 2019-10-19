@@ -1,0 +1,22 @@
+.moviePoster {
+  width: 20rem;
+  border-radius: 15px;
+}
+
+.movie {
+  margin: 1rem 2rem 0 2rem;
+}
+
+.movie a {
+ text-decoration: none;
+ color: black;
+}
+
+.movie p {
+  margin: 0;
+  text-align: left;
+  width: 20rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
