@@ -26,3 +26,4 @@ deploy:
     - chmod 600 ~/.ssh/id_dsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     - rsync -rav --delete build/ pettegre@it2810-40.idi.ntnu.no:/var/www/html/prosjekt3/
+    - ssh pettegre@it2810-40.idi.ntnu.no 'mkdir /var/www/html/prosjekt3/images && cp -R /images-prosjekt3/* /var/www/html/prosjekt3/images'
