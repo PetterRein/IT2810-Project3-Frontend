@@ -28,7 +28,10 @@ function App() {
   const movies = dataFilms.movies
   return (
     <div className="App">
-        <MoviePage movies={movies}/>
+	<div class="header_bar">
+		<h3 class="head_text">Project 3</h3>
+	</div>
+	<MoviePage movies={movies}/>
     </div>
   );
 }

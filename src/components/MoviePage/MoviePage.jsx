@@ -8,8 +8,8 @@ export default function MoviePage ({movies}) {
   );
 
   return (
-    <div className={ 'rows' }>
-      { Movies }
+    <div className={ 'row' }>
+	  { Movies }
     </div>
   )
 }
