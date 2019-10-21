@@ -4,7 +4,7 @@ import MovieList from './components/MovieList'
 import MovieDetail from './components/MovieDetail'
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const movieQuery = gql`
@@ -35,7 +35,10 @@ function App() {
 		  <div className="header_bar">
 			  <Link to="/movieList" className="link">Home</Link>
 		  </div>
-		  <Route path="/movieList" >
+      <Route path="/">
+        <Redirect to="/movieList"/>
+      </Route>
+      <Route path="/movieList" >
 			  <MovieList movies={movies}/>
 		  </Route>
 		  <Route path="/detail/:id" component={MovieDetail} >
