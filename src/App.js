@@ -31,7 +31,7 @@ function App() {
   const movies = dataFilms.movies
   return (
     <div className="App">
-	  <Router>
+	  <Router basename={process.env.BASENAME}>
 		  <div className="header_bar">
 			  <Link to="/movieList" className="link">Home</Link>
 		  </div>
