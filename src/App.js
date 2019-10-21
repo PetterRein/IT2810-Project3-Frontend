@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './components/HelloWorld'
+import MovieList from './components/MovieList'
+import MovieDetail from './components/MovieDetail'
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+const movieQuery = gql`
+  {
+    movies {
+      id
+      title
+      release_date
+      vote_average
+      poster_path
+    }
+  }
+`;
+
 
 function App() {
+  const { loading: loadingFilms, error: errorFilm, data: dataFilms } = useQuery(
+    movieQuery
+  );
+
+  if (loadingFilms) return <p>Loading...</p>;
+  if (errorFilm) return <p>There's an error: {errorFilm.message}</p>;
+
+  const movies = dataFilms.movies
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <HelloWorld />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+	  <Router>
+		  <div className="header_bar">
+			  <Link to="/movieList" className="link">Home</Link>
+		  </div>
+		  <Route path="/movieList" >
+			  <MovieList movies={movies}/>
+		  </Route>
+		  <Route path="/detail/:id" component={MovieDetail} >
+		  </Route>
+	  </Router>
     </div>
   );
 }
