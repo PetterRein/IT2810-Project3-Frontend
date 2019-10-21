@@ -1,8 +1,9 @@
 import React from 'react'
-import { Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './MovieDetail.css'; 
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import CommentSection from '../CommentSection/CommentSection'
 
 export default function MovieDetail () {
 	let params = useParams();
@@ -30,7 +31,7 @@ export default function MovieDetail () {
 		<div className={'c6'}>
 			<div className={'movie page_box'}>
 				<div className={'box_header'}>
-					<h3 class="box_title">{ movie.title }</h3>
+					<h3 className="box_title">{ movie.title }</h3>
 				</div>
 				<div className={'box_content'}>
 					<img className={'moviePoster'} src={'/images' + movie.poster_path} alt={'Poster: ' + movie.title}/>
@@ -38,6 +39,7 @@ export default function MovieDetail () {
 					<p>{ 'Release: ' + movie.release_date.substring(0, 4) }</p>
 				</div>
 			</div>
+			<CommentSection />
 		</div>
 	)
 }
