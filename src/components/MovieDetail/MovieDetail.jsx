@@ -34,7 +34,7 @@ export default function MovieDetail () {
 					<h3 className="box_title">{ movie.title }</h3>
 				</div>
 				<div className={'box_content'}>
-					<img className={'moviePoster'} src={'/images' + movie.poster_path} alt={'Poster: ' + movie.title}/>
+					<img className={'moviePoster'} src={process.env.REACT_APP_BASENAME + '/images' + movie.poster_path} alt={'Poster: ' + movie.title}/>
 					<p>{ 'Score: ' + movie.vote_average }</p>
 					<p>{ 'Release: ' + movie.release_date.substring(0, 4) }</p>
 				</div>
