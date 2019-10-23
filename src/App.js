@@ -6,7 +6,7 @@ import SortQuerySelector from './components/SortQuerySelector'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-//import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
+import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
 //import SearchField from './components/SearchField';
 
 function App (props) {

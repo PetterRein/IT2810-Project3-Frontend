@@ -6,7 +6,7 @@ import getGraph from "../actions/getMoviesGraph";
 
 
 const rootReducer = combineReducers({
-  //SortReducer,
+  SortReducer,
   MoviesReducer,
 })
 
