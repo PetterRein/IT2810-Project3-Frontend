@@ -2,50 +2,37 @@ import React from 'react';
 import './App.css';
 import MovieList from './components/MovieList'
 import MovieDetail from './components/MovieDetail'
-import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+//import SortQuerySelector from './components/SortQuerySelector'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+//import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
+//import SearchField from './components/SearchField';
 
-const movieQuery = gql`
-  {
-    movies {
-      id
-      title
-      release_date
-      vote_average
-      poster_path
-    }
-  }
-`;
-
-
-function App() {
-  const { loading: loadingFilms, error: errorFilm, data: dataFilms } = useQuery(
-    movieQuery
-  );
-
-  if (loadingFilms) return <p>Loading...</p>;
-  if (errorFilm) return <p>There's an error: {errorFilm.message}</p>;
-
-  const movies = dataFilms.movies
-  return (
-    <div className="App">
-	  <Router basename={process.env.REACT_APP_BASENAME}>
-		  <div className="header_bar">
-			  <Link to="/movieList" className="link">Home</Link>
-		  </div>
-      <Route path="/">
-        <Redirect to="/movieList"/>
-      </Route>
-      <Route path="/movieList" >
-			  <MovieList movies={movies}/>
-		  </Route>
-		  <Route path="/detail/:id" component={MovieDetail} >
-		  </Route>
-	  </Router>
-    </div>
+function App (props) {
+  return ( 
+      <div className="App">
+      <Router basename={process.env.REACT_APP_BASENAME}>
+        <div className="header_bar">
+          <Link to="/movieList" className="link">Home</Link>
+        </div>
+        <Route path="/">
+          <Redirect to="/movieList"/>
+        </Route>
+        <Route path="/movieList" >
+          
+          <MovieList movies={props.movies}/>
+        </Route>
+        <Route path="/detail/:id" component={MovieDetail} >
+        </Route>
+      </Router>
+      </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    movies: state.MoviesReducer.movies,
+  };
+};
+export default connect(mapStateToProps)(App);
