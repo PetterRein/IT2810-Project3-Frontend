@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
-//import SearchField from './components/SearchField';
+import SearchField from './components/SearchField';
 
 function App (props) {
   return ( 
@@ -21,6 +21,8 @@ function App (props) {
         </Route>
         <Route path="/movieList" >
           <SortQuerySelector />
+          <VoteAverageFilter />
+          <SearchField />
           <MovieList movies={props.movies}/>
         </Route>
         <Route path="/detail/:id" component={MovieDetail} >

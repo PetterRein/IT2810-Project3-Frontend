@@ -1,6 +1,6 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-//import SortReducer from "../reducers/SortReducer";
+import SortReducer from "../reducers/SortReducer";
 import MoviesReducer from "../reducers/MoviesReducer";
 import getGraph from "../actions/getMoviesGraph";
 
