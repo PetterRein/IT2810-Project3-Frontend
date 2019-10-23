@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import MovieList from './components/MovieList'
 import MovieDetail from './components/MovieDetail'
-//import SortQuerySelector from './components/SortQuerySelector'
+import SortQuerySelector from './components/SortQuerySelector'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -20,7 +20,7 @@ function App (props) {
           <Redirect to="/movieList"/>
         </Route>
         <Route path="/movieList" >
-          
+          <SortQuerySelector />
           <MovieList movies={props.movies}/>
         </Route>
         <Route path="/detail/:id" component={MovieDetail} >
