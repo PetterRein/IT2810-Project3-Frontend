@@ -7,15 +7,14 @@ export default function UpdateVoteAverage(payload) {
   const sortByField = store.getState().SortReducer.sortByField
   const sortFieldDirection = store.getState().SortReducer.sortFieldDirection
   const search = store.getState().SortReducer.search
-  const page = store.getState().SortReducer.page * 6
   store.dispatch(UpdatePageNumber(0));
   if (payload && sortFieldDirection && sortByField) {
     store.dispatch(getGraph(movieQuerySortedCount(sortByField, sortFieldDirection, payload, search)))
-    store.dispatch(getGraph(movieQuerySorted(sortByField, sortFieldDirection, payload, search, page)))
+    store.dispatch(getGraph(movieQuerySorted(sortByField, sortFieldDirection, payload, search, 0)))
   }
   else {
     store.dispatch(getGraph(movieQueryFilterCount(payload, search)))
-    store.dispatch(getGraph(movieQueryFilter(payload, search, page)))
+    store.dispatch(getGraph(movieQueryFilter(payload, search, 0)))
   }
   return { type: "UPDATE_VOTEAVERAGE", payload }
 };
