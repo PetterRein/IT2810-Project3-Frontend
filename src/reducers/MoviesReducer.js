@@ -1,17 +1,32 @@
 const initialState = {
   fetching: false,
-  movies: []
+  movies: [],
+  numberOfMovies: undefined
 }
 
 export const MoviesReducer = (state = initialState, action) => {
   switch (action.type) {
     case "STARTING_REQUEST":{
-      return {fetching: true}
+      return {
+        ...state,
+        fetching: true
+      }
     }
     case "FINISHED_REQUEST":{
-      return {fetching: false,
-             movies: action.response.data.movies}
-            }
+      if(!!action.response.data.movies){
+        return {
+          ...state,
+          fetching: false,
+          movies: action.response.data.movies}
+        }
+      else {
+        return {
+          ...state,
+          fetching: false,
+          numberOfMovies: action.response.data.numberOfMovies
+        }
+      }
+    }
     default:
       return state
   }

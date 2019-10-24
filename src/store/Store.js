@@ -23,7 +23,7 @@ const store = createStore(
 
 const movieQuery = {
   query: `{
-    movies {
+    movies (first: 6, skip: 0){
       id
       title
       release_date
@@ -34,5 +34,13 @@ const movieQuery = {
   variables: null
 }
 
+const numberOfMovies = {
+  query: `{
+    numberOfMovies
+  }`,
+  variables: null
+}
+
 store.dispatch(getGraph(movieQuery))
+store.dispatch(getGraph(numberOfMovies))
 export default store
