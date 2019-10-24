@@ -7,6 +7,7 @@ export function movieQuerySorted(sortField, sortFieldDirection, vote_average_lim
         release_date
         poster_path
         vote_average
+        overview
       }
     }`,
     variables: null
@@ -31,6 +32,7 @@ export function movieQueryFilter(vote_average_limit, search, skip) {
         release_date
         poster_path
         vote_average
+        overview
       }
     }`,
     variables: null
