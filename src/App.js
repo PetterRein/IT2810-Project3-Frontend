@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
 import SearchField from './components/SearchField';
+import PageSelector from './components/PageSelector/PageSelector';
 
 function App (props) {
   return ( 
@@ -23,6 +24,7 @@ function App (props) {
           <SortQuerySelector />
           <VoteAverageFilter />
           <SearchField />
+          <PageSelector />
           <MovieList movies={props.movies}/>
         </Route>
         <Route path="/detail/:id" component={MovieDetail} >

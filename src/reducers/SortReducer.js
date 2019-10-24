@@ -2,7 +2,8 @@ const initialState = {
   sortByField: '',
   sortFieldDirection: '',
   vote_average: "0",
-  search: ""
+  search: "",
+  page: 0
 };
 
 function SortReducer(state = initialState, action) {
@@ -22,6 +23,10 @@ function SortReducer(state = initialState, action) {
     case "UPDATE_SEARCH": {
       let search = action.payload;
       return {...state, search: search}
+    }
+    case "UPDATE_PAGE": {
+      let page = action.payload;
+      return {...state, page: page}
     }
     default:
       return state;
