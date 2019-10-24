@@ -14,7 +14,8 @@ export default function MovieDetail () {
 	      title
 	      release_date
 	      vote_average
-	      poster_path
+				poster_path
+				overview
 	    }
 	  }
 	`;
@@ -36,7 +37,8 @@ export default function MovieDetail () {
 				<div className={'box_content'}>
 					<img className={'moviePoster'} src={process.env.REACT_APP_BASENAME + '/images' + movie.poster_path} alt={'Poster: ' + movie.title}/>
 					<p>{ 'Score: ' + movie.vote_average }</p>
-					<p>{ 'Release: ' + movie.release_date.substring(0, 4) }</p>
+					<p>{ 'Release: ' + movie.release_date }</p>
+					<p>{ 'Overview: ' + movie.overview }</p>
 				</div>
 			</div>
 			<CommentSection />
