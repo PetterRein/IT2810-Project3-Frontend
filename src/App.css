@@ -9,7 +9,9 @@
 	width:250px;
 	text-align:center;
 	display:inline-block;
-	margin:30px;
+	margin-right:15px;
+	margin-left:15px;
+	margin-top:15px;
 }
 .linkButtonSplit {
 	vertical-align: middle;
@@ -26,6 +28,9 @@
 
 .left-align {
 	text-align:left !important;
+}
+.center-align {
+	text-align:center !important;
 }
 body, html {
 	margin: 0px;
@@ -75,31 +80,37 @@ body, html {
 	height:auto;
 	margin-left:auto;
 	margin-right:auto;
+	display:inline-block;
 }
 
-.c1 {
+.col1 {
 	float: left;
 	width: 16.66%;
 }
 
-.c2 {
+.col2 {
 	float: left;
 	width: 33.33%;
 }
 
-.c3 {
+.col3 {
 	float: left;
 	width: 50%;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	height:650px;
+	margin-bottom:20px;
+
 }
-.c4 {
+.col4 {
 	float: left;
 	width: 66.66%;
 }
-.c5 {
+.col5 {
 	float: left;
 	width: 83.33%;
 }
-.c6 {
+.col6 {
 	float: left;
 	width: 100%;
 }
@@ -118,6 +129,7 @@ body, html {
 	display:inline-flex;
 	border-bottom:1px solid rgba(0, 0, 0, .12);
 	border-radius:2px 2px 0px 0px;
+
 }
 
 .box_header h3{
@@ -174,12 +186,23 @@ img {
 }
 
 /* Media tags for responsivitet */
-@media only screen and (max-width: 768px) {
-	[class*="c"] {
+@media only screen and (max-width: 767px) {
+	[class*="col"] {
 		width: 100%;
 	}
 	.box_content {
-		background-color: #EFEFEF;
+		background-color: #efefef;
 		width:auto;
 	}
+.buttonsplit {
+	filter:brightness(80%);
+	background-color:#fff;
+	height:250px;
+	width:250px;
+	text-align:center;
+	display:inline-block;
+	margin-right:0px;
+	margin-left:0px;
+	margin-top:15px;
+}
 }

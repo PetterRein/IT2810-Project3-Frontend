@@ -21,7 +21,7 @@ function PageSelector (props) {
   }
   return  ( 
     numberOfPagesNeeded ?
-	    <div className={"selectorWrapper"}>
+	    <div className={"selectorWrapper page_box c6"}>
 		    <select className={'pageSelector'} onChange={handleChange} value={props.page}>
 			    {pages}
 		    </select>

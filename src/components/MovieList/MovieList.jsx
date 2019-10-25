@@ -1,7 +1,6 @@
 import React from 'react'
 import MovieListElement from '../MovieListElement'
 import './MovieList.css'
-import { Link } from 'react-router-dom';
 import VoteAverageFilter from '../VoteAverageFilter.js/VoteAverageFilter';
 import SearchField from '../SearchField/SearchField';
 import PageSelector from '../PageSelector/PageSelector';
@@ -12,7 +11,7 @@ export default function MovieList ({movies}) {
   let Movies = undefined
   if (movies) {
     Movies = movies.map((movie, i) =>
-	    <Link to={`/detail/${movie.id}`} key={i}><MovieListElement movieInfo={movie}/></Link>
+	    <MovieListElement movieInfo={movie}/>
     );
   }
 
@@ -25,7 +24,7 @@ export default function MovieList ({movies}) {
 		  <div class="box_header">
 			  <h3>Filtrering</h3>
 		  </div>
-		  <div class="box_content">
+		  <div class="box_content left-align">
 			  <SortQuerySelector />
 			  <VoteAverageFilter />
 			  <SearchField />
