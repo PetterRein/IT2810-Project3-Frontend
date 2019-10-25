@@ -1,9 +1,9 @@
-import { Field, Formik } from "formik";
 import React from "react";
 import gql from 'graphql-tag';
-import { Mutation } from "react-apollo";
+import { useQuery, useMutation } from "react-apollo";
+import Comment from '../Comment/Comment';
 
-const commentAddQuery = gql`
+const ADD_COMMENT = gql`
   mutation AddComment($movieid: ID!, $comment: String!) {
     addMovieComment(movieid: $movieid, comment: $comment){
       id
@@ -13,44 +13,55 @@ const commentAddQuery = gql`
 `;
 
 export default function CommentAdd (props) {
-  return (
-    <Mutation mutation={commentAddQuery} >
-      { addComment => (
-        <Formik
-          validateOnBlur={false}
-	  className={'page_box'}
-          validateOnChange={false}
-          onSubmit={async (data) => {
-            try {
-              if (!data.comment){
-                throw alert("You must write something")
-              }
-              await addComment({
-                variables: {
-                  comment: data.comment,
-                  movieid: props.movieid
-                }
-              });
-              window.location.reload();
-            } catch (err) {
-              console.log("Tried to submit comment without text")
-              }
-            }}
-            initialValues={{
-              comment: "",
-            }}
-          >
-          {({ handleSubmit }) => (
-            <form className={"commentForm"} onSubmit={handleSubmit}>
-              <label>Write a comment: </label>
-              <br></br>
-              <Field component="textarea" name="comment" />
-              <br></br>
-              <button type="submit">submit</button>
-            </form>
-            )}
-          </Formik>
-        )}
-    </Mutation>
-  )
+
+	const GET_COMMENTS = gql`
+	  {
+	    commentsForMovie(movieid: "${props.movieid}") {
+comment
+id
+    }
+  }
+`;
+
+	let input;
+
+	const { loading, error, data } = useQuery(GET_COMMENTS)
+	const [addComment, { commentdata }] = useMutation(ADD_COMMENT, 
+		{
+			update(cache, { data: { addComment } }) {
+				const { commentsForMovie } = cache.readQuery({ query: GET_COMMENTS });
+				cache.writeQuery({
+					query: GET_COMMENTS,
+					data: { commentsForMovie: commentsForMovie.concat([addComment]) },
+				});
+			}
+		}
+	)
+
+
+
+	if (loading) return 'Loading...';
+	if (error) return `Error! ${error.message}`;
+
+	function handleSubmission(e) {
+		e.preventDefault();
+		addComment({ variables: { movieid: props.movieid, comment: input.value } });
+		input.value = '';
+	}
+	return (
+		<div>
+			<form onSubmit={ handleSubmission } >
+				<input ref={node => { input = node; }}/>
+				<button type="submit">Add Comment</button>
+			</form>
+			<p>Comments:</p>
+			<div>
+				{data.commentsForMovie.map(comment => (
+					<li key={comment.id} className={'commentListElement'}>
+						<p>{ comment.comment }</p>
+					</li>
+				))}
+			</div>
+		</div>
+	);
 }
