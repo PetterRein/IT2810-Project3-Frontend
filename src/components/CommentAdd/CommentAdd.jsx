@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import gql from 'graphql-tag';
 import { useQuery, useMutation } from "react-apollo";
 import Comment from '../Comment/Comment';
@@ -26,12 +26,13 @@ id
 	let input;
 
 	const { loading, error, data } = useQuery(GET_COMMENTS)
-	const [addComment, { commentdata }] = useMutation(ADD_COMMENT)
-
-
+	const [addComment, { commentdata }] = useMutation(ADD_COMMENT);
 
 	if (loading) return 'Loading...';
 	if (error) return `Error! ${error.message}`;
+	function reloadpage(e) {
+		window.location.reload();
+	}
 
 	function handleSubmission(e) {
 		e.preventDefault();
@@ -39,20 +40,18 @@ id
 
 		input.value = '';
 		// Optimalt bruker vi Apollo her, men vanskelig med nåværende struktur
-		window.location.reload()
 	}
 	return (
 		<div>
 			<form onSubmit={ handleSubmission } >
 				<input ref={node => { input = node; }}/>
 				<button type="submit">Add Comment</button>
+				<a href="#" onClick={reloadpage}>Reload comments</a>
 			</form>
 			<p>Comments:</p>
 			<div>
 				{data.commentsForMovie.map(comment => (
-					<li key={comment.id} className={'commentListElement'}>
-						<p>{ comment.comment }</p>
-					</li>
+					<Comment key={comment.id} comment={comment.comment} />
 				))}
 			</div>
 		</div>
