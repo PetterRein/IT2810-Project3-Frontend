@@ -1,4 +1,28 @@
 /* CSS Skrevet av Edvard Nordstrøm på Gruppe 40, IT2810-H19 til Webutviklingsprosjekt. */
+.buttonsplit:hover {
+	filter:brightness(100%);
+}
+.buttonsplit {
+	filter:brightness(80%);
+	background-color:#fff;
+	height:250px;
+	width:250px;
+	text-align:center;
+	display:inline-block;
+	margin:30px;
+}
+.linkButtonSplit {
+	vertical-align: middle;
+	color:black;
+	font-size: 24px;
+	line-height:250px;
+}
+.linkButtonSplit.hover {
+	vertical-align: middle;
+	color:black;
+	font-size: 24px;
+	line-height:250px;
+}
 
 .left-align {
 	text-align:left !important;

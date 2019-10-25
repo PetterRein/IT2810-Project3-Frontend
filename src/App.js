@@ -25,12 +25,32 @@ function App (props) {
       <div className="App">
       <Router basename={process.env.REACT_APP_BASENAME}>
         <div className="header_bar">
-          <Link to="/movieList" className="link">Home</Link>
+          <Link to="/" className="link">Home</Link>
+          <Link to="/movieList" className="link">MovieList</Link>
           <Link to="/wordcloud" className="link">WordCloud</Link>
         </div>
-        <Route path="/">
-          <Redirect to="/movieList"/>
-        </Route>
+	<Route exact path="/">
+	<div className={'page_header'}>
+		<h3>Velkommen til FilmDatabasen!</h3>
+	</div>
+	<div className="page_box">
+		<div className="box_header">
+			<h3>Valg</h3>
+		</div>
+		<div className="box_content">
+			<Link to="/movieList" className="linkButtonSplit" >
+				<div className="buttonsplit">
+					Filmliste
+				</div>
+			</Link>
+			<Link to="/wordcloud" className="linkButtonSplit" >
+				<div className="buttonsplit">
+					Ordsky
+				</div>
+			</Link>
+		</div>
+	</div>
+	</Route>
         <Route path="/movieList" >
           <MovieList movies={props.movies}/>
         </Route>

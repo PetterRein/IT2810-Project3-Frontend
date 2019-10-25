@@ -15,7 +15,7 @@ export default function CommentSection (){
 		    <h3>Add a comment</h3>
 	    </div>
 	    <div class="box_content left-align">
-		    <CommentAdd movieid={params.id} comments={GET_COMMENTS} />
+		    <CommentAdd movieid={params.id} />
 	    </div>
     </div>
   )

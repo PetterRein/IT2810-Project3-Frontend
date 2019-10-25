@@ -26,17 +26,7 @@ id
 	let input;
 
 	const { loading, error, data } = useQuery(GET_COMMENTS)
-	const [addComment, { commentdata }] = useMutation(ADD_COMMENT, 
-		{
-			update(cache, { data: { addComment } }) {
-				const { commentsForMovie } = cache.readQuery({ query: GET_COMMENTS });
-				cache.writeQuery({
-					query: GET_COMMENTS,
-					data: { commentsForMovie: commentsForMovie.concat([addComment]) },
-				});
-			}
-		}
-	)
+	const [addComment, { commentdata }] = useMutation(ADD_COMMENT)
 
 
 
@@ -46,7 +36,10 @@ id
 	function handleSubmission(e) {
 		e.preventDefault();
 		addComment({ variables: { movieid: props.movieid, comment: input.value } });
+
 		input.value = '';
+		// Optimalt bruker vi Apollo her, men vanskelig med nåværende struktur
+		window.location.reload()
 	}
 	return (
 		<div>
