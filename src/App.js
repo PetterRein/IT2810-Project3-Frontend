@@ -9,13 +9,24 @@ import { connect } from "react-redux";
 import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
 import SearchField from './components/SearchField';
 import PageSelector from './components/PageSelector/PageSelector';
+import ReactWordcloud from 'react-wordcloud'
 
 function App (props) {
+  const words = []
+  props.movies.map((movie) => 
+    movie.overview.split(" ").map((word) =>
+      words.push({
+        text: word,
+        value: 64
+      })
+    )
+  )
   return ( 
       <div className="App">
       <Router basename={process.env.REACT_APP_BASENAME}>
         <div className="header_bar">
           <Link to="/movieList" className="link">Home</Link>
+          <Link to="/wordcloud" className="link">WordCloud</Link>
         </div>
         <Route path="/">
           <Redirect to="/movieList"/>
@@ -28,6 +39,9 @@ function App (props) {
           <MovieList movies={props.movies}/>
         </Route>
         <Route path="/detail/:id" component={MovieDetail} >
+        </Route>
+        <Route path="/wordcloud">
+          <ReactWordcloud words={words} />
         </Route>
       </Router>
       </div>

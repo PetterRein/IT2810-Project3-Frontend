@@ -29,6 +29,7 @@ const movieQuery = {
       release_date
       poster_path
       vote_average
+      overview
     }
   }`,
   variables: null
