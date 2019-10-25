@@ -1,0 +1,9 @@
+.commentBox ul {
+	padding-left:0px;
+	list-style-type: none;
+}
+.commentListElement {
+	border-bottom:1px solid #000;
+	padding-top:20px;
+	padding:10px;
+}

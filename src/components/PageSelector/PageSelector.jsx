@@ -2,6 +2,8 @@ import React from 'react'
 import store from '../../store/Store'
 import { connect } from "react-redux";
 import UpdatePageNumber from '../../actions/UpdatePageNumber';
+import './PageSelector.css';
+
 
 function Options (props) {
   return <option value={props.value}>Page: {props.value + 1}</option>
@@ -19,9 +21,12 @@ function PageSelector (props) {
   }
   return  ( 
     numberOfPagesNeeded ?
-    <select onChange={handleChange} value={props.page}>
-      {pages}
-    </select> : <></>
+	    <div className={"selectorWrapper"}>
+		    <select className={'pageSelector'} onChange={handleChange} value={props.page}>
+			    {pages}
+		    </select>
+	    </div>
+	  : <></>
   )
 }
 

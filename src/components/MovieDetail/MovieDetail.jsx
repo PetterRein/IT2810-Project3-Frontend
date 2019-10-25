@@ -41,7 +41,7 @@ export default function MovieDetail () {
 					<p>{ 'Overview: ' + movie.overview }</p>
 				</div>
 			</div>
-			<CommentSection />
+			<CommentSection movie={params.id} />
 		</div>
 	)
 }
