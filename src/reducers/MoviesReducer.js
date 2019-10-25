@@ -5,6 +5,7 @@ const initialState = {
   loaded: false
 }
 
+// Lagrer hva actions endere i state sånn at du kan hente det ut senere
 export const MoviesReducer = (state = initialState, action) => {
   switch (action.type) {
     case "STARTING_REQUEST":{

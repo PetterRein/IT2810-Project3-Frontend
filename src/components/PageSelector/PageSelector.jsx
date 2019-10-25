@@ -9,7 +9,7 @@ function Options (props) {
   return <option value={props.value}>Page: {props.value + 1}</option>
 }
 
-
+// Lager et object som lar deg velge hvilken side du skal være på
 function PageSelector (props) {
   function  handleChange (e) {
     store.dispatch(UpdatePageNumber(e.target.value));

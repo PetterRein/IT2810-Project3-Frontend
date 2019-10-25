@@ -11,6 +11,7 @@ const ADD_COMMENT = gql`
 	  }
 	`;
 
+// Gir deg mulighet for å lage til en ny kommentar på en film
 export default function CommentAdd (props) {
 	let input;
 

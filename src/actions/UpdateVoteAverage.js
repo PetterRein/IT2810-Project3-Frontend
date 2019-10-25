@@ -3,6 +3,7 @@ import getGraph from "../utils/getMoviesGraph";
 import { movieQueryFilter, movieQuerySorted, movieQueryFilterCount, movieQuerySortedCount } from '../utils/movieQuerys';
 import UpdatePageNumber from './UpdatePageNumber';
 
+// Oppdater score valget du har gjort
 export default function UpdateVoteAverage(payload) {
   const sortByField = store.getState().SortReducer.sortByField
   const sortFieldDirection = store.getState().SortReducer.sortFieldDirection

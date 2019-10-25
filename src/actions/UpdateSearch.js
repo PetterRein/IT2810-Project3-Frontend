@@ -3,6 +3,7 @@ import getGraph from "../utils/getMoviesGraph";
 import { movieQueryFilter, movieQuerySorted, movieQueryFilterCount, movieQuerySortedCount } from '../utils/movieQuerys';
 import UpdatePageNumber from './UpdatePageNumber';
 
+// Oppdatere hva du har søkt på
 export default function UpdateSearch(payload) {
   const sortByField = store.getState().SortReducer.sortByField
   const sortFieldDirection = store.getState().SortReducer.sortFieldDirection

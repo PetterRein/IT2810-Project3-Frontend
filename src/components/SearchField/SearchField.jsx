@@ -3,6 +3,7 @@ import store from '../../store/Store'
 import { connect } from "react-redux";
 import UpdateSearch from '../../actions/UpdateSearch';
 
+// Rendere et object på siden som lar deg søke med et text felt du lan skrive i
 function SearchField (props) {
   function  handleChange (e) {
     store.dispatch(UpdateSearch(e.target.value));

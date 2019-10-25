@@ -5,6 +5,7 @@ import Comment from '../Comment/Comment';
 import CommentAdd from '../CommentAdd/CommentAdd';
 import { useQuery } from "react-apollo";
 
+// Oppsettet hvordan kommentarer på en film skal vises
 
 export default function CommentSection (props){
 	const GET_COMMENTS = gql`

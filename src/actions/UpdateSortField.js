@@ -3,6 +3,7 @@ import getGraph from "../utils/getMoviesGraph";
 import { movieQuerySorted, movieQueryFilter, movieQuerySortedCount, movieQueryFilterCount } from '../utils/movieQuerys';
 import UpdatePageNumber from './UpdatePageNumber';
 
+// Oppdatere hvilket felt du sortere på
 export default function UpdateSortField(payload) {
   const sortFieldDirection = store.getState().SortReducer.sortFieldDirection
   const vote_average_limit = store.getState().SortReducer.vote_average

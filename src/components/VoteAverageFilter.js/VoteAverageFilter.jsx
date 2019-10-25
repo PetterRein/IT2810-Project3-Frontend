@@ -3,6 +3,7 @@ import store from '../../store/Store'
 import { connect } from "react-redux";
 import UpdateVoteAverage from '../../actions/UpdateVoteAverage';
 
+// Lager radio buttons sånn at du kan velge hvilken score du skal filtere på
 function RadioButtons (props) {
   return (
       <label className="radio">

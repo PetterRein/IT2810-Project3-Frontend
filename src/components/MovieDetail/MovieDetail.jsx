@@ -5,6 +5,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import CommentSection from '../CommentSection/CommentSection'
 
+// Render detailene om en film på detail siden
 export default function MovieDetail () {
 	let params = useParams();
 

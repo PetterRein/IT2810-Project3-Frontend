@@ -4,6 +4,7 @@ import UpdateSortDir from '../../actions/UpdateSortDir'
 import store from '../../store/Store'
 import { connect } from "react-redux";
 
+// Lager radio buttons sånn at du kan velge retning på sorteringen og hvilket felt du vil sortere
 function RadioButtons (props) {
   return (
       <label className="radio">

@@ -6,6 +6,7 @@ const initialState = {
   page: 0
 };
 
+// Lagrer hva actions endere i state sånn at du kan hente det ut senere
 function SortReducer(state = initialState, action) {
   switch(action.type) {
     case "UPDATE_SORTFIELD": {

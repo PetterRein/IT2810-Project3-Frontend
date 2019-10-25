@@ -2,6 +2,7 @@ import store from '../store/Store';
 import getGraph from "../utils/getMoviesGraph";
 import { movieQueryFilter, movieQuerySorted } from '../utils/movieQuerys';
 
+// Opdaterer hvilken side du nå er på
 export default function UpdatePageNumber(payload) {
   const sortByField = store.getState().SortReducer.sortByField
   const sortFieldDirection = store.getState().SortReducer.sortFieldDirection

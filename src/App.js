@@ -10,6 +10,7 @@ import store from './store/Store';
 import getGraph from './utils/getMoviesGraph';
 import UpdateLoaded from './actions/UpdateLoaded';
 
+// Denne setter alt i lag og bestemmer hvor ting skal gå og hvordan urler skal skal vise hva
 function App (props) {
   // Laster noen filmer så vi har noe å starte med
   if(!props.loaded) {

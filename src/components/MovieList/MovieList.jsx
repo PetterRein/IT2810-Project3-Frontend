@@ -7,6 +7,7 @@ import SearchField from '../SearchField/SearchField';
 import PageSelector from '../PageSelector/PageSelector';
 import SortQuerySelector from '../SortQuerySelector/SortQuerySelector'
 
+// Lager en liste med filmer som vises på siden
 export default function MovieList ({movies}) {
   let Movies = undefined
   if (movies) {

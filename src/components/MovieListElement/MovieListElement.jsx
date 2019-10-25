@@ -1,6 +1,7 @@
 import React from 'react'
 import './MovieListElement.css'; 
 
+// Lager et og et movie object
 export default function MovieListElement ({movieInfo}) {
   return (
 	  <div className={'c3'}>
