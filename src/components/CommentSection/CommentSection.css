@@ -3,7 +3,7 @@
 	list-style-type: none;
 }
 .commentListElement {
+	padding:0px;
 	border-bottom:1px solid #000;
-	padding-top:20px;
-	padding:10px;
+	list-style-type: none;
 }

@@ -63,7 +63,7 @@ function App (props) {
 		<div className="box_header">
 			<h3>Valg</h3>
 		</div>
-		<div className="box_content">
+		<div className="box_content center-align">
 			<Link to="/movieList" className="linkButtonSplit" >
 				<div className="buttonsplit">
 					Filmliste
