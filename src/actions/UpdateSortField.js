@@ -12,7 +12,7 @@ export default function UpdateSortField(payload) {
     store.dispatch(getGraph(movieQuerySortedCount(payload, sortFieldDirection, vote_average_limit, search)))
     store.dispatch(getGraph(movieQuerySorted(payload, sortFieldDirection, vote_average_limit, search, 0)))
   }
-  if (!payload && sortFieldDirection) {
+  else if (!payload && sortFieldDirection) {
     store.dispatch(UpdatePageNumber(0));
     store.dispatch(getGraph(movieQueryFilterCount(vote_average_limit, search)))
     store.dispatch(getGraph(movieQueryFilter(vote_average_limit, search, 0)))

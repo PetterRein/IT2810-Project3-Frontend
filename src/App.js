@@ -10,8 +10,37 @@ import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilt
 import SearchField from './components/SearchField';
 import PageSelector from './components/PageSelector/PageSelector';
 import ReactWordcloud from 'react-wordcloud'
+import store from './store/Store';
+import getGraph from './utils/getMoviesGraph';
+import UpdateLoaded from './actions/UpdateLoaded';
 
 function App (props) {
+  // Laster noen filmer så vi har noe å starte med
+  if(!props.loaded) {
+    const movieQuery = {
+      query: `{
+        movies (first: 6, skip: 0){
+          id
+          title
+          release_date
+          poster_path
+          vote_average
+          overview
+        }
+      }`,
+      variables: null
+    }
+    
+    const numberOfMovies = {
+      query: `{
+        numberOfMovies
+      }`,
+      variables: null
+    }
+    store.dispatch(UpdateLoaded(true))
+    store.dispatch(getGraph(movieQuery))
+    store.dispatch(getGraph(numberOfMovies))
+  }
   const words = []
   props.movies.map((movie) => 
     movie.overview.split(" ").map((word) =>
@@ -51,6 +80,7 @@ function App (props) {
 const mapStateToProps = state => {
   return {
     movies: state.MoviesReducer.movies,
+    loaded: state.MoviesReducer.loaded
   };
 };
 export default connect(mapStateToProps)(App);
