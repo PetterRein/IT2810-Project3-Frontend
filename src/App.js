@@ -32,10 +32,6 @@ function App (props) {
           <Redirect to="/movieList"/>
         </Route>
         <Route path="/movieList" >
-          <SortQuerySelector />
-          <VoteAverageFilter />
-          <SearchField />
-          <PageSelector />
           <MovieList movies={props.movies}/>
         </Route>
         <Route path="/detail/:id" component={MovieDetail} >

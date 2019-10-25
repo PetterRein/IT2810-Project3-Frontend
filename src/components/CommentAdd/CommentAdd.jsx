@@ -18,6 +18,7 @@ export default function CommentAdd (props) {
       { addComment => (
         <Formik
           validateOnBlur={false}
+	  className={'page_box'}
           validateOnChange={false}
           onSubmit={async (data) => {
             try {
@@ -40,7 +41,7 @@ export default function CommentAdd (props) {
             }}
           >
           {({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
+            <form className={"commentForm"} onSubmit={handleSubmit}>
               <label>Write a comment: </label>
               <br></br>
               <Field component="textarea" name="comment" />

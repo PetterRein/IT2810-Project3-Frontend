@@ -1,5 +1,8 @@
 /* CSS Skrevet av Edvard Nordstrøm på Gruppe 40, IT2810-H19 til Webutviklingsprosjekt. */
 
+.left-align {
+	text-align:left !important;
+}
 body, html {
 	margin: 0px;
 	font-family: 'Roboto', sans-serif;
