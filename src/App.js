@@ -2,13 +2,9 @@ import React from 'react';
 import './App.css';
 import MovieList from './components/MovieList'
 import MovieDetail from './components/MovieDetail'
-import SortQuerySelector from './components/SortQuerySelector'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import VoteAverageFilter from './components/VoteAverageFilter.js/VoteAverageFilter';
-import SearchField from './components/SearchField';
-import PageSelector from './components/PageSelector/PageSelector';
 import ReactWordcloud from 'react-wordcloud'
 
 function App (props) {

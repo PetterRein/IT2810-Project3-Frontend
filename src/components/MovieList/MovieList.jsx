@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import VoteAverageFilter from '../VoteAverageFilter.js/VoteAverageFilter';
 import SearchField from '../SearchField/SearchField';
 import PageSelector from '../PageSelector/PageSelector';
-import ReactWordcloud from 'react-wordcloud'
 import SortQuerySelector from '../SortQuerySelector/SortQuerySelector'
 
 export default function MovieList ({movies}) {

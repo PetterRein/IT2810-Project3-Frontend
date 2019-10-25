@@ -1,11 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 import './CommentSection.css'; 
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo';
 import Comment from '../Comment/Comment';
 import CommentAdd from '../CommentAdd/CommentAdd';
-import { useQuery, useMutation } from "react-apollo";
+import { useQuery } from "react-apollo";
 
 
 export default function CommentSection (props){
@@ -29,7 +27,6 @@ export default function CommentSection (props){
 	if (error) return `Error! ${error.message}`;
 
 	console.log(data.commentsForMovie);
-		let input;
 
 	return (
 		<div className={'commentBox page_box'}>
@@ -41,7 +38,6 @@ export default function CommentSection (props){
 				<p>Comments:</p>
 				<div>
 					{data.commentsForMovie.map(({ id, comment }) => {
-						let input;
 						return (
 							<Comment key={id} comment={comment} />
 						)

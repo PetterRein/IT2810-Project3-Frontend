@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import gql from 'graphql-tag';
-import { useQuery, useMutation } from "react-apollo";
-import Comment from '../Comment/Comment';
+import { useMutation } from "react-apollo";
 
 const ADD_COMMENT = gql`
 	  mutation AddComment($movieid: ID!, $comment: String!) {
