@@ -1,6 +1,6 @@
 import store from '../store/Store';
-import getGraph from "./getMoviesGraph";
-import { movieQueryFilter, movieQuerySorted, movieQueryFilterCount, movieQuerySortedCount } from './movieQuerys';
+import getGraph from "../utils/getMoviesGraph";
+import { movieQueryFilter, movieQuerySorted, movieQueryFilterCount, movieQuerySortedCount } from '../utils/movieQuerys';
 import UpdatePageNumber from './UpdatePageNumber';
 
 export default function UpdateVoteAverage(payload) {

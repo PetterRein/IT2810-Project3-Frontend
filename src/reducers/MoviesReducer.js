@@ -1,7 +1,8 @@
 const initialState = {
   fetching: false,
   movies: [],
-  numberOfMovies: undefined
+  numberOfMovies: undefined,
+  loaded: false
 }
 
 export const MoviesReducer = (state = initialState, action) => {
@@ -25,6 +26,13 @@ export const MoviesReducer = (state = initialState, action) => {
           fetching: false,
           numberOfMovies: action.response.data.numberOfMovies
         }
+      }
+    }
+    case "UPDATE_LOADED": {
+      let loaded = action.payload
+      return {
+        ...state,
+        loaded: loaded
       }
     }
     default:
