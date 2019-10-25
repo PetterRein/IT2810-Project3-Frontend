@@ -1,3 +1,158 @@
-.App {
-  text-align: center;
+/* CSS Skrevet av Edvard Nordstrøm på Gruppe 40, IT2810-H19 til Webutviklingsprosjekt. */
+
+body, html {
+	margin: 0px;
+	font-family: 'Roboto', sans-serif;
+	background: #E2C290;
+}
+
+/* Navbar eller tittelbar */
+.header_bar {
+	color: #fff;
+	background: #485665;
+	padding:10px;
+	padding-right: 20px;
+	padding-left:20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.header_bar h3, .link {
+	color: #fff;
+	background: #485665;
+	padding:10px;
+	padding-right: 20px;
+	padding-left:20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+/* Separer navbar / titlebar med resten av page content, mest til bruk i fremtiden dersom vi trenger flere undersider. Mulig teksten kan dynamisk tilpasses til react single page. */
+
+.page_header {
+	background-color:#EFEFEF;
+	margin:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.page_header h3{
+	color: rgba(66,66,66,0.87);
+	font-size: 18px;
+	font-weight:400;
+	line-height:44px;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+/* Vi implementerer totalt 6 kolonner i en rad på 100% for å ha medievalg på siden, slik som layouten indikerer i requirements. */
+
+.row {
+	width:100%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.c1 {
+	float: left;
+	width: 16.66%;
+}
+
+.c2 {
+	float: left;
+	width: 33.33%;
+}
+
+.c3 {
+	float: left;
+	width: 50%;
+}
+.c4 {
+	float: left;
+	width: 66.66%;
+}
+.c5 {
+	float: left;
+	width: 83.33%;
+}
+.c6 {
+	float: left;
+	width: 100%;
+}
+
+/* Dette er hoved-boksene som brukes inni grid-systemet, som består både av en page_box med både box_header og box_content. */
+
+.page_box {
+	margin:20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.box_header {
+	width:100%;
+	background:#FFF;
+	/* Viktig med inline flex slik at tabs funker ordentlig*/
+	display:inline-flex;
+	border-bottom:1px solid rgba(0, 0, 0, .12);
+	border-radius:2px 2px 0px 0px;
+}
+
+.box_header h3{
+	color:rgb(66,66,66);
+	padding-left:32px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height:32px;
+}
+
+.box_content {
+	background-color: #EFEFEF;
+	height:100%;
+	text-align:center;
+	padding-top:32px;
+	padding-bottom:32px;
+	padding-left:32px;
+	padding-right:32px;
+}
+
+.box_header.tabbed {
+	background:#FFF;
+	border-bottom:1px solid rgba(0, 0, 0, .12);
+	border-radius:2px 2px 0px 0px;
+}
+
+.tab {
+	color: rgba(66,66,66,0.87);
+	line-height:69px;
+	text-align:center;
+	border-left:1px solid rgba(0, 0, 0, .12);
+}
+.tab:hover {
+	text-align:center;
+	background-color:#ccc;
+}
+
+footer {
+	display:inline-block;
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	color: rgba(256,256,256,0.87);
+	background: #485665;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	padding:10px;
+
+}
+
+img {
+    width: 100%;
+    height: 40vh;
+}
+
+/* Media tags for responsivitet */
+@media only screen and (max-width: 768px) {
+	[class*="c"] {
+		width: 100%;
+	}
+	.box_content {
+		background-color: #EFEFEF;
+		width:auto;
+	}
 }
