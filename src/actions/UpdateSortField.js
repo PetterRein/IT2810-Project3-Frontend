@@ -1,6 +1,6 @@
 import store from '../store/Store';
-import getGraph from "./getMoviesGraph";
-import { movieQuerySorted, movieQueryFilter, movieQuerySortedCount, movieQueryFilterCount } from './movieQuerys';
+import getGraph from "../utils/getMoviesGraph";
+import { movieQuerySorted, movieQueryFilter, movieQuerySortedCount, movieQueryFilterCount } from '../utils/movieQuerys';
 import UpdatePageNumber from './UpdatePageNumber';
 
 export default function UpdateSortField(payload) {
