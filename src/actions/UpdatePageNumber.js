@@ -12,7 +12,7 @@ export default function UpdatePageNumber(payload) {
     store.dispatch(getGraph(movieQuerySorted(sortByField, sortFieldDirection, vote_average_limit, search, payload * 6)))
   }
   else {
-    store.dispatch(getGraph(movieQueryFilter(vote_average_limit, search, payload)))
+    store.dispatch(getGraph(movieQueryFilter(vote_average_limit, search, payload * 6)))
   }
   return { type: "UPDATE_PAGE", payload }
 };
