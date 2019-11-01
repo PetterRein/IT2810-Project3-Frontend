@@ -1,6 +1,6 @@
 describe('Test Search', () => {
   it('Visits our site and search for something', () => {
-    cy.visit('it2810-40.idi.ntnu.no/prosjekt3')
+    cy.visit('it2810-40.idi.ntnu.no/prosjekt3/movieList')
     cy.wait(1000)
     cy.contains("Home")
     cy.contains("WordCloud")
@@ -18,7 +18,7 @@ describe('Test Search', () => {
 
 describe('Test Site contains', () => {
   it('Visits our site and check that things renders', () => {
-    cy.visit('it2810-40.idi.ntnu.no/prosjekt3')
+    cy.visit('it2810-40.idi.ntnu.no/prosjekt3/movieList')
     cy.wait(1000)
     cy.contains("Home")
     cy.contains("WordCloud")
@@ -32,7 +32,7 @@ describe('Test Site contains', () => {
 
 describe('Test Site Sort', () => {
   it('Visits our site and sort movies', () => {
-    cy.visit('it2810-40.idi.ntnu.no/prosjekt3')
+    cy.visit('it2810-40.idi.ntnu.no/prosjekt3/movieList')
     cy.wait(200)
     cy.get('input[name=Title]').check() 
     cy.get('input[name=ASC]').check()
@@ -43,7 +43,7 @@ describe('Test Site Sort', () => {
 
 describe('Test Site Sort and Filter', () => {
   it('Visits our site and sort movies and check vote_average', () => {
-    cy.visit('it2810-40.idi.ntnu.no/prosjekt3')
+    cy.visit('it2810-40.idi.ntnu.no/prosjekt3/movieList')
     cy.wait(200)
     cy.get('input[name=Title]').check() 
     cy.get('input[name=ASC]').check()
