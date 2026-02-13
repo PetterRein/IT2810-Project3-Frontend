@@ -13,7 +13,7 @@
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "react-wordcloud": "^1.1.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.5.0",
+    "cypress": "^15.10.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint-plugin-cypress": "^2.7.0",
